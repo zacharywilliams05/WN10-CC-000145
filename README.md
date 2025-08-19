@@ -1,0 +1,2 @@
+# WN10-CC-000145
+STIG Implementation for WN10-CC-000145
