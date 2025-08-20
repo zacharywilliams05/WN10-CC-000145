@@ -26,6 +26,7 @@ STIG Implementation WN10-CC-000145
     PS C:\> .\__remediation_template(STIG-ID-WN10-CC-000145).ps1 
 #>
 
+```powershell
 # Define the registry path and value
 $registryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51"
 $valueName = "DCSettingIndex"
@@ -44,6 +45,7 @@ $existingValue = Get-ItemProperty -Path $registryPath -Name $valueName -ErrorAct
 if ($null -eq $existingValue) {
     # Set the value if it does not exist
     New-ItemProperty -Path $registryPath -Name $valueName -Value $valueData -PropertyType DWord -Force
+```
     Write-Host "The registry value '$valueName' has been created with a value of $valueData."
 } else {
     Write-Host "The registry value '$valueName' already exists with a value of $($existingValue.$valueName)."
