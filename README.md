@@ -45,8 +45,8 @@ $existingValue = Get-ItemProperty -Path $registryPath -Name $valueName -ErrorAct
 if ($null -eq $existingValue) {
     # Set the value if it does not exist
     New-ItemProperty -Path $registryPath -Name $valueName -Value $valueData -PropertyType DWord -Force
-```
     Write-Host "The registry value '$valueName' has been created with a value of $valueData."
 } else {
     Write-Host "The registry value '$valueName' already exists with a value of $($existingValue.$valueName)."
 }
+```
